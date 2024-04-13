@@ -24,14 +24,14 @@ public class DelimiterMatching {
             System.out.println("This statement is true.");
             long endTime   = System.nanoTime();
             long totalTime = endTime - startTime;
-            System.out.println("Time for program to run in nanoseconds: " + totalTime);
+            System.out.println("Time for the program to run in nanoseconds: " + totalTime);
         }
         else
         {
             System.out.println("This statement is not true.");
             long endTime   = System.nanoTime();
             long totalTime = endTime - startTime;
-            System.out.println("Time for program to run in nanoseconds: " + totalTime);
+            System.out.println("Time for the program to run in nanoseconds: " + totalTime);
         }
         
     }
