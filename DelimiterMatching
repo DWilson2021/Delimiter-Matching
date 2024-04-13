@@ -1,0 +1,76 @@
+package delimitermatching;
+
+public class DelimiterMatching {
+
+    public static void main(String[] args) //Runs the program, Time Complexity = O(n)
+    {
+        
+        String a = "[[[{{}}]]]"; // Input String Example
+        StackClass s = new StackClass(a.length());
+        boolean start = false;
+        long startTime = System.nanoTime();
+        for(int i = 0; i < a.length(); i++)
+        {
+            char c = a.charAt(i);
+            if(c == '(' || c == '{' || c == '[')
+            {
+                start = true;
+            }
+            Match(s,c);   
+        }
+       
+        if(s.isEmpty() == true && start == true && a.length() % 2 == 0)
+        {
+            System.out.println("This statement is true.");
+            long endTime   = System.nanoTime();
+            long totalTime = endTime - startTime;
+            System.out.println("Time for program to run in nanoseconds: " + totalTime);
+        }
+        else
+        {
+            System.out.println("This statement is not true.");
+            long endTime   = System.nanoTime();
+            long totalTime = endTime - startTime;
+            System.out.println("Time for program to run in nanoseconds: " + totalTime);
+        }
+        
+    }
+    
+    public static void Match(StackClass x, char h) //Checks String a to see if all brackets match, Time Complexity = O(c)
+    {
+        
+        if(x.isFull() == false && (h == '(' || h == '{' || h == '['))
+        {
+            x.push(h);
+        }
+        else if(x.isEmpty() == true && (h == ')' || h == '}' || h == ']'))
+        {
+            System.out.println("stack is empty.");
+        }
+        else
+        {
+            char c = (char) x.pop();
+            
+            char y = ' ';
+            x.push(c);
+            
+            if(c == '(' && h == ')')
+            {
+                y = (char) x.pop();
+               
+            }
+            
+            if(c == '{' && h == '}')
+            {
+                y = (char) x.pop();
+                
+            }
+            
+            if(c == '[' && h == ']')
+            {
+                y = (char) x.pop();
+                
+            }       
+        }
+    }   
+}
