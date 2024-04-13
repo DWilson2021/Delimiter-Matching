@@ -1,0 +1,42 @@
+package delimitermatching;
+
+public class StackClass
+{
+    private int maxSize;
+    private long[] stackArray;
+    private int top;
+    
+    public StackClass (int s) 
+    { //Initialize algorithm stack 
+      //Time Complexity = O(c)
+        maxSize = s;
+        stackArray = new long[maxSize];
+        top = -1;
+    }
+    
+    public void push(long j)
+    { //Adds one element to the stack 
+      //Time Complexity = O(c)
+        
+        stackArray[++top] = j;
+    }
+        
+    public long pop()
+    { //Returns and removes top element 
+      //Time Complexity = O(c)
+        
+       return stackArray[top--]; 
+    }
+    
+    public boolean isEmpty()
+    { //Checks to see if stack is empty 
+      //Time Complexity = O(c)
+        return (top == -1);
+    }
+    
+    public boolean isFull()
+    { //Initialize algorithm stack 
+      //Time Complexity = O(c)
+        return (top == maxSize - 1);
+    }      
+} 
